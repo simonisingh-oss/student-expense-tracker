@@ -1,0 +1,13 @@
+{
+  "name": "student-expense-tracker",
+  "version": "1.1.0",
+  "description": "Student Expense Tracker with HTML frontend and Express backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

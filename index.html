@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-icon">₹</span><div><b>SpendWise</b><small>STUDENT TRACKER</small></div></div>
+    <nav><a class="active" href="#dashboard">▦ &nbsp; Dashboard</a><a href="#transactions">☷ &nbsp; Transactions</a></nav>
+    <div class="side-note"><div class="side-emoji">🎓</div><b>Smart money habits</b><p>Track today. Save for tomorrow.</p></div>
+    <div class="sidebar-foot">PERSONAL FINANCE • 2026</div>
+  </aside>
+
+  <main class="main" id="dashboard">
+    <header class="topbar"><div><p class="eyebrow">YOUR MONEY, IN CONTROL</p><h1>Student Expense Tracker</h1><p class="muted">A simple view of where your money goes.</p></div><div class="date-pill" id="today"></div></header>
+
+    <section class="summary-grid">
+      <article class="summary-card total-card"><div class="card-top"><span>Total expenses</span><span class="round-icon">₹</span></div><h2 id="total">₹0.00</h2><p id="period-label">Across all records</p></article>
+      <article class="summary-card"><div class="card-top"><span>Transactions</span><span class="round-icon purple">↗</span></div><h2 id="count">0</h2><p>Expenses recorded</p></article>
+      <article class="summary-card"><div class="card-top"><span>Top category</span><span class="round-icon orange">★</span></div><h2 class="category-value" id="top-category">—</h2><p id="top-category-amount">No expenses yet</p></article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel form-panel">
+        <div class="panel-heading"><div><p class="eyebrow">ADD A RECORD</p><h3>New expense</h3></div><span class="plus">＋</span></div>
+        <form id="expense-form">
+          <label for="title">Expense title</label><input id="title" name="title" placeholder="e.g. Lunch at college" required maxlength="80">
+          <div class="two-col"><div><label for="amount">Amount (₹)</label><input id="amount" name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required></div>
+          <div><label for="category">Category</label><select id="category" name="category" required><option value="">Select category</option><option>Food</option><option>Transport</option><option>Education</option><option>Shopping</option><option>Entertainment</option><option>Health</option><option>Other</option></select></div></div>
+          <label for="expense_date">Date</label><input id="expense_date" name="expense_date" type="date" required>
+          <label for="note">Note <span class="optional">(optional)</span></label><textarea id="note" name="note" rows="2" placeholder="Add a short note..."></textarea>
+          <button class="primary-btn" type="submit">＋ &nbsp; Add expense</button><p class="form-message" id="form-message" role="status"></p>
+        </form>
+      </article>
+
+      <article class="panel chart-panel">
+        <div class="panel-heading"><div><p class="eyebrow">SPENDING BREAKDOWN</p><h3>By category</h3></div><select id="month-filter" aria-label="Filter month"><option value="">All time</option></select></div>
+        <div id="category-chart" class="chart-empty"><div class="empty-icon">◔</div><b>No expenses to display</b><span>Add your first expense to see the breakdown.</span></div>
+        <div id="legend" class="legend"></div>
+      </article>
+    </section>
+
+    <section class="panel transactions-panel" id="transactions">
+      <div class="panel-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h3>Recent transactions</h3></div><span class="records-label" id="records-label">0 records</span></div>
+      <div class="table-wrap"><table><thead><tr><th>EXPENSE</th><th>CATEGORY</th><th>DATE</th><th>AMOUNT</th><th></th></tr></thead><tbody id="expense-list"><tr><td colspan="5" class="empty-row">No transactions yet. Add your first expense above.</td></tr></tbody></table></div>
+    </section>
+    <footer>Made for students · Spend wisely, live freely.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
